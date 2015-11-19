@@ -4,9 +4,12 @@ import java.sql.*;
 public class kata5v1 {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Class.forName("oracle.jdbc.driver.OracleDriver");
+        Class.forName("org.sqlite.JDBC");
+        //Class.forName("oracle.jdbc.driver.OracleDriver");
         Connection connection = DriverManager.getConnection(
-                "jdbc:oracle:thin:@10.22.143.90:1521:orcl", "system", "orcl");
+                "jdbc:sqlite:KATA.DB");
+        //Connection connection = DriverManager.getConnection(
+        //        "jdbc:oracle:thin:@10.22.143.90:1521:orcl", "system", "orcl");
         Statement state = connection.createStatement();
         
         String query = "SELECT * FROM PEOPLE";
